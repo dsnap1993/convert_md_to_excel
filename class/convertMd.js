@@ -81,61 +81,6 @@ class ConvertMd {
         }
         return records;
     }
-
-    static writeRecords (sheet, records) {
-        var row = 1;
-
-        for (let element of records) {
-            for (let column = 1; column <= 12; column += 1) {
-                const index = parseInt(column) - 1;
-                sheet.getCell(row, column).value = element[index];
-            }
-            row += 1;
-        }
-    }
-
-    static formatSheet (worksheet, lengthOfRow) {
-        // a width of each column
-        const columnArray = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M'];
-        const columnWidthArray = [12.5, 15, 15, 15, 10, 56.88, 38.25, 15, 15, 15, 15, 15, 15];
-
-        const borderStyles = {
-            top: { style: "thin" },
-            left: { style: "thin" },
-            bottom: { style: "thin" },
-            right: { style: "thin" }
-        };
-        const fillStyles = {
-            type: 'pattern',
-            pattern:'solid',
-            fgColor:{argb:'006495ed'}
-        };
-        const fontStyles = {
-            bold: true
-        };
-
-        for (let index in columnArray) {
-            var column = worksheet.getColumn(columnArray[index]);
-            column.width = columnWidthArray[index];
-            column.alignment = {
-                vertical: 'top',
-                horizontal: 'left',
-                wrapText: true
-            };
-            column.border = borderStyles;
-
-            var cellOfRow1 = worksheet.getCell(columnArray[index]+1);
-            cellOfRow1.fill = fillStyles;
-            cellOfRow1.font = fontStyles;
-        }
-
-        const limit = Math.max(10, lengthOfRow);
-
-        for (let index = 1; index <= limit; index += 1) {
-            var row = worksheet.getRow(index);
-            row.height = 37.5;
-        }
-    }
 }
 
 module.exports = ConvertMd;
