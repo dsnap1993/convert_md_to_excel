@@ -13,10 +13,10 @@
 
 The following example is a format for this coverting tools.
 
-- # is a large section.
-- ## is a middle section.
-- ### is a small section.
-- #### is a type of test.
+- '#' is a large section.
+- '##' is a middle section.
+- '###' is a small section.
+- '####' is a type of test.
 - numbering list is ways of testing.
 - list is items of checking
 - === is a sign for separate sheets.
