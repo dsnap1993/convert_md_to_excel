@@ -13,7 +13,7 @@ if (message.complete_params !== '') {
 
 var result = true;
 for (let key in message) {
-    if (message[key] !== '') {
+    if (message[key] !== undefined) {
         console.log(message[key]);
         result = false;
     }
